@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
             BullseyeGameTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                    Greeting("Doyun")
+                    GameScreen()
                 }
             }
         }
@@ -27,14 +27,14 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun GameScreen() {
+
 }
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun GameScreenPreview() {
     BullseyeGameTheme {
-        Greeting("Doyun")
+        GameScreen()
     }
 }
