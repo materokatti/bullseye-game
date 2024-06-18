@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
             BullseyeGameTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                    Greeting("Doyun")
                 }
             }
         }
@@ -35,6 +35,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     BullseyeGameTheme {
-        Greeting("Android")
+        Greeting("Doyun")
     }
 }
