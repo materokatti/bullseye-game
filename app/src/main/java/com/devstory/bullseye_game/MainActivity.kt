@@ -25,16 +25,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-@Composable
-fun GameScreen() {
-
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GameScreenPreview() {
-    BullseyeGameTheme {
-        GameScreen()
-    }
-}
