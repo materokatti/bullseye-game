@@ -23,6 +23,8 @@ import com.devstory.bullseye_game.ui.theme.BullseyeGameTheme
 
 @Composable
 fun GameScreen() {
+    var alertIsVisible: Boolean = false
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -59,13 +61,17 @@ fun GameScreen() {
                 )
             }
             Button(onClick = {
-                println("hello, Android!!!")
-                Log.i("Button Click Event", "You clicked the Hit Me Button")
+                alertIsVisible = true
+                Log.i("Alert Visible? :", alertIsVisible.toString())
             }) {
                 Text(text = stringResource(R.string.hit_me_button_text))
             }
         }
         Spacer(modifier = Modifier.weight(.5f))
+
+        if (alertIsVisible) {
+            Text(text ="This is an alert!")
+        }
     }
 }
 
