@@ -1,5 +1,6 @@
 package com.devstory.bullseye_game
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,6 +13,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,13 +36,13 @@ fun GameScreen() {
             verticalArrangement = Arrangement.SpaceEvenly,
             modifier = Modifier.weight(9f)
         ) {
-            Text("PUT THE BULLSEYE AS YOU CAN TO")
-            Text(text = "89", fontSize = 32.sp, fontWeight = FontWeight.Bold)
+            Text(stringResource(R.string.instruction_text))
+            Text(text = stringResource(R.string.target_value_text), fontSize = 32.sp, fontWeight = FontWeight.Bold)
             Row (
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "1",
+                    text = stringResource(R.string.min_value_text),
                     textAlign = TextAlign.Center,
                     modifier = Modifier.padding(start = 16.dp)
                 )
@@ -51,13 +53,16 @@ fun GameScreen() {
                     modifier = Modifier.weight(1f)
                 )
                 Text(
-                    text = "100",
+                    text = stringResource(R.string.max_value_text),
                     textAlign = TextAlign.Center,
                     modifier = Modifier.padding(end = 16.dp)
                 )
             }
-            Button(onClick = { /*TODO*/ }) {
-                Text(text = "HIT ME")
+            Button(onClick = {
+                println("hello, Android!!!")
+                Log.i("Button Click Event", "You clicked the Hit Me Button")
+            }) {
+                Text(text = stringResource(R.string.hit_me_button_text))
             }
         }
         Spacer(modifier = Modifier.weight(.5f))
