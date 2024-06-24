@@ -12,7 +12,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TargetSlider(modifier: Modifier = Modifier) {
+fun TargetSlider(
+    modifier: Modifier = Modifier,
+    value:Float = 0.5f,
+    valueChanged: (Float) -> Unit
+) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
@@ -23,9 +27,9 @@ fun TargetSlider(modifier: Modifier = Modifier) {
             modifier = Modifier.padding(start = 16.dp)
         )
         Slider(
-            value = 0.5f,
+            value = value,
             valueRange = 0.01f..1f,
-            onValueChange = { },
+            onValueChange = valueChanged,
             modifier = Modifier.weight(1f)
         )
         Text(

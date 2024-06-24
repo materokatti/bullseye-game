@@ -28,6 +28,7 @@ import com.devstory.bullseye_game.ui.theme.BullseyeGameTheme
 @Composable
 fun GameScreen() {
     var alertIsVisible : Boolean by remember{mutableStateOf(false)}
+    var sliderValues by remember{mutableStateOf(0.5f)}
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -44,7 +45,12 @@ fun GameScreen() {
         ) {
             Text(stringResource(R.string.instruction_text))
             Text(text = stringResource(R.string.target_value_text), fontSize = 32.sp, fontWeight = FontWeight.Bold)
-            TargetSlider()
+            TargetSlider(
+                value = sliderValues,
+                valueChanged = { value ->
+                    sliderValues = value
+                }
+            )
             Button(onClick = {
                 alertIsVisible = true
                 Log.i("Alert Visible? :", alertIsVisible.toString())
