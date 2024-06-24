@@ -44,26 +44,7 @@ fun GameScreen() {
         ) {
             Text(stringResource(R.string.instruction_text))
             Text(text = stringResource(R.string.target_value_text), fontSize = 32.sp, fontWeight = FontWeight.Bold)
-            Row (
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = stringResource(R.string.min_value_text),
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(start = 16.dp)
-                )
-                Slider(
-                    value = 0.5f,
-                    valueRange = 0.01f..1f,
-                    onValueChange = {},
-                    modifier = Modifier.weight(1f)
-                )
-                Text(
-                    text = stringResource(R.string.max_value_text),
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(end = 16.dp)
-                )
-            }
+            TargetSlider()
             Button(onClick = {
                 alertIsVisible = true
                 Log.i("Alert Visible? :", alertIsVisible.toString())
