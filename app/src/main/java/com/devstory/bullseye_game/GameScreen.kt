@@ -74,7 +74,9 @@ fun GameScreen() {
         Spacer(modifier = Modifier.weight(.5f))
 
         if (alertIsVisible) {
-            ResultDialog()
+            ResultDialog(
+                hideDialog = {alertIsVisible = false}
+            )
         }
     }
 }

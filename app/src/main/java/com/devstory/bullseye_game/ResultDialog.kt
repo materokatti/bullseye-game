@@ -10,13 +10,18 @@ import androidx.compose.ui.res.stringResource
 
 @Composable
 fun ResultDialog(
+    hideDialog: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     AlertDialog(
-        onDismissRequest = {},
+        onDismissRequest = {
+            hideDialog()
+        },
         confirmButton = {
             TextButton(
-                onClick = {}
+                onClick = {
+                    hideDialog()
+                }
             ) {
                 Text(stringResource(id = R.string.result_dialog_button_text))
             }
