@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,8 +28,10 @@ import com.devstory.bullseye_game.ui.theme.BullseyeGameTheme
 
 @Composable
 fun GameScreen() {
-    var alertIsVisible : Boolean by remember{mutableStateOf(false)}
-    var sliderValues by remember{mutableStateOf(0.5f)}
+    var alertIsVisible : Boolean by rememberSaveable {mutableStateOf(false)}
+    var sliderValue by rememberSaveable {mutableStateOf(0.5f)}
+    val sliderToInt = (sliderValue * 100).toInt()
+
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -46,9 +49,9 @@ fun GameScreen() {
             Text(stringResource(R.string.instruction_text))
             Text(text = stringResource(R.string.target_value_text), fontSize = 32.sp, fontWeight = FontWeight.Bold)
             TargetSlider(
-                value = sliderValues,
+                value = sliderValue,
                 valueChanged = { value ->
-                    sliderValues = value
+                    sliderValue = value
                 }
             )
             Button(onClick = {
@@ -62,7 +65,8 @@ fun GameScreen() {
 
         if (alertIsVisible) {
             ResultDialog(
-                hideDialog = {alertIsVisible = false}
+                hideDialog = {alertIsVisible = false},
+                sliderValue = sliderToInt
             )
         }
     }
