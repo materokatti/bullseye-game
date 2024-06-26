@@ -1,0 +1,21 @@
+package com.devstory.bullseye_game
+
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
+
+@Composable
+fun GamePrompt (modifier: Modifier = Modifier) {
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ){
+        Text(stringResource(R.string.instruction_text))
+        Text(text = stringResource(R.string.target_value_text), fontSize = 32.sp, fontWeight = FontWeight.Bold)
+    }
+}
