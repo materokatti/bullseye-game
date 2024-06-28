@@ -2,7 +2,7 @@
     <string name="app_name">Bull\'s Eye</string>
     <string name="instruction_text">PUT THE BULLSEYE AS YOU CAN TO</string>
     <string name="min_value_text">1</string>
-    <string name="target_value_text">89</string>
+    <string name="target_value_text">%1$d</string>
     <string name="max_value_text">100</string>
     <string name="hit_me_button_text">HIT ME</string>
     <string name="result_dialog_button_text">Awesome!</string>

@@ -10,12 +10,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun GamePrompt (modifier: Modifier = Modifier) {
+fun GamePrompt (targetValue: Int,modifier: Modifier = Modifier) {
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ){
         Text(stringResource(R.string.instruction_text))
-        Text(text = stringResource(R.string.target_value_text), fontSize = 32.sp, fontWeight = FontWeight.Bold)
+        Text(text = stringResource(id = R.string.target_value_text, targetValue), fontSize = 32.sp, fontWeight = FontWeight.Bold)
     }
 }

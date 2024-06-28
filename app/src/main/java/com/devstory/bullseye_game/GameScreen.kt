@@ -25,11 +25,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.devstory.bullseye_game.ui.theme.BullseyeGameTheme
+import kotlin.random.Random
 
 @Composable
 fun GameScreen() {
     var alertIsVisible : Boolean by rememberSaveable {mutableStateOf(false)}
     var sliderValue by rememberSaveable {mutableStateOf(0.5f)}
+    var targetValue by rememberSaveable {
+        mutableStateOf(Random.nextInt(1, 100))
+    }
+
     val sliderToInt = (sliderValue * 100).toInt()
 
 
@@ -46,7 +51,7 @@ fun GameScreen() {
             verticalArrangement = Arrangement.SpaceEvenly,
             modifier = Modifier.weight(9f)
         ) {
-            GamePrompt()
+            GamePrompt(targetValue = targetValue)
             TargetSlider(
                 value = sliderValue,
                 valueChanged = { value ->
