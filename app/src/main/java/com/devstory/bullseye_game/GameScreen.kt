@@ -37,6 +37,10 @@ fun GameScreen() {
 
     val sliderToInt = (sliderValue * 100).toInt()
 
+    fun pointsForCurrentRound(): Int {
+        return 999
+    }
+
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -70,7 +74,8 @@ fun GameScreen() {
         if (alertIsVisible) {
             ResultDialog(
                 hideDialog = {alertIsVisible = false},
-                sliderValue = sliderToInt
+                sliderValue = sliderToInt,
+                points = pointsForCurrentRound()
             )
         }
     }
