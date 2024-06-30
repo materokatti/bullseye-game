@@ -38,7 +38,16 @@ fun GameScreen() {
     val sliderToInt = (sliderValue * 100).toInt()
 
     fun pointsForCurrentRound(): Int {
-        return 999
+        val maxScore = 100
+
+        val difference: Int = if (sliderToInt > targetValue) {
+            sliderToInt - targetValue
+        } else if (targetValue > sliderToInt) {
+            targetValue -  sliderToInt
+        } else {
+            0
+        }
+        return maxScore - difference
     }
 
 
