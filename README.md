@@ -16,3 +16,8 @@ This is a simple game where you have to guess the number that the computer has c
 - [x] Generate a random number between 0 and 100
 - [x] Calculate the difference between the target and the slider value
 
+### Polishing the game
+- [] Implement multiple rounds
+- [] Implement restarting the game
+- [] Make the app look pretty :)
+- [] Add the about screen
