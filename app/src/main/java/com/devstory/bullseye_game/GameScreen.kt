@@ -25,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.devstory.bullseye_game.ui.theme.BullseyeGameTheme
+import kotlin.math.abs
 import kotlin.random.Random
 
 @Composable
@@ -39,14 +40,7 @@ fun GameScreen() {
 
     fun pointsForCurrentRound(): Int {
         val maxScore = 100
-
-        val difference: Int = if (sliderToInt > targetValue) {
-            sliderToInt - targetValue
-        } else if (targetValue > sliderToInt) {
-            targetValue -  sliderToInt
-        } else {
-            0
-        }
+        val difference = abs(targetValue - sliderToInt)
         return maxScore - difference
     }
 
