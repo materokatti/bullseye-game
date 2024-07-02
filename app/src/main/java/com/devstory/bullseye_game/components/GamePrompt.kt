@@ -1,4 +1,4 @@
-package com.devstory.bullseye_game
+package com.devstory.bullseye_game.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Text
@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.devstory.bullseye_game.R
 
 @Composable
 fun GamePrompt (targetValue: Int,modifier: Modifier = Modifier) {

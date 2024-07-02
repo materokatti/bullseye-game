@@ -1,4 +1,4 @@
-package com.devstory.bullseye_game
+package com.devstory.bullseye_game.components
 
 import androidx.compose.material.AlertDialog
 import androidx.compose.material.Text
@@ -6,6 +6,7 @@ import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import com.devstory.bullseye_game.R
 
 
 @Composable
