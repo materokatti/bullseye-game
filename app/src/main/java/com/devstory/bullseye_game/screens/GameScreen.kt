@@ -58,7 +58,7 @@ fun GameScreen() {
         } else if (difference == 1) {
             bonus = 50
         }
-        return maxScore - difference
+        return maxScore - difference + bonus
     }
 
     fun alertTitle(): Int {
