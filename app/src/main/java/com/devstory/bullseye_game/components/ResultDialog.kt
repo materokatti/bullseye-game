@@ -12,6 +12,7 @@ import com.devstory.bullseye_game.R
 @Composable
 fun ResultDialog(
     hideDialog: () -> Unit,
+    onRoundIncrement: () -> Unit,
     sliderValue: Int,
     points: Int,
     modifier: Modifier = Modifier
@@ -24,6 +25,7 @@ fun ResultDialog(
             TextButton(
                 onClick = {
                     hideDialog()
+                    onRoundIncrement()
                 }
             ) {
                 Text(stringResource(id = R.string.result_dialog_button_text))

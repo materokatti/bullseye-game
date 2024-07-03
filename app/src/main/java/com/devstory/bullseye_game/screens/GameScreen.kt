@@ -42,6 +42,9 @@ fun GameScreen() {
     var totalScore by rememberSaveable {
         mutableStateOf(0)
     }
+    var currentRound by rememberSaveable {
+        mutableStateOf(1)
+    }
 
     fun pointsForCurrentRound(): Int {
         val maxScore = 100
@@ -79,6 +82,7 @@ fun GameScreen() {
             }
             GameDetail(
                 totalScore = totalScore,
+                currentRound = currentRound,
                 modifier = Modifier.fillMaxWidth()
             )
         }
@@ -88,7 +92,11 @@ fun GameScreen() {
             ResultDialog(
                 hideDialog = {alertIsVisible = false},
                 sliderValue = sliderToInt,
-                points = pointsForCurrentRound()
+                points = pointsForCurrentRound(),
+                onRoundIncrement = {
+                    currentRound += 1
+                    targetValue = Random.nextInt(1, 100)
+                }
             )
         }
     }
