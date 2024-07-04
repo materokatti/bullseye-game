@@ -18,14 +18,15 @@ import com.devstory.bullseye_game.R
 fun GameDetail (
     modifier: Modifier = Modifier,
     totalScore: Int = 0,
-    currentRound: Int = 1
+    currentRound: Int = 1,
+    onStartOver: () -> Unit
 ) {
     Row (
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly,
         modifier = modifier
     ) {
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = { onStartOver() }) {
             Text(text = stringResource(id = R.string.start_over))
         }
         GameInfo(label = stringResource(id = R.string.score_label), value = totalScore)
@@ -50,5 +51,5 @@ fun GameInfo(label: String, value : Int = 0) {
 @Preview(showBackground = true)
 @Composable
 fun GameDetailPreview() {
-    GameDetail()
+    GameDetail(onStartOver = {})
 }

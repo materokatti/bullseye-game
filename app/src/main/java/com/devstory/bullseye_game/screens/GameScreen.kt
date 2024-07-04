@@ -1,5 +1,6 @@
 package com.devstory.bullseye_game.screens
 
+import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -31,10 +32,12 @@ import kotlin.random.Random
 
 @Composable
 fun GameScreen() {
+    fun newTargetValue() = Random.nextInt(1, 100)
+
     var alertIsVisible : Boolean by rememberSaveable {mutableStateOf(false)}
     var sliderValue by rememberSaveable {mutableStateOf(0.5f)}
     var targetValue by rememberSaveable {
-        mutableStateOf(Random.nextInt(1, 100))
+        mutableStateOf(newTargetValue())
     }
 
     val sliderToInt = (sliderValue * 100).toInt()
@@ -49,6 +52,7 @@ fun GameScreen() {
     fun differenceAmount() = abs(targetValue - sliderToInt)
 
     fun pointsForCurrentRound(): Int {
+
         val maxScore = 100
         val difference = differenceAmount()
         var bonus = 0
@@ -59,6 +63,13 @@ fun GameScreen() {
             bonus = 50
         }
         return maxScore - difference + bonus
+    }
+
+    fun startNewGame() {
+        totalScore = 0
+        currentRound = 1
+        sliderValue = 0.5f
+        targetValue = newTargetValue()
     }
 
     fun alertTitle(): Int {
@@ -104,6 +115,7 @@ fun GameScreen() {
             Button(onClick = {
                 alertIsVisible = true
                 totalScore += pointsForCurrentRound()
+                Log.d(TAG, "pointsForCurrentRound() returned: ${pointsForCurrentRound()}")
                 Log.i("Alert Visible? :", alertIsVisible.toString())
             }) {
                 Text(text = stringResource(R.string.hit_me_button_text))
@@ -111,7 +123,8 @@ fun GameScreen() {
             GameDetail(
                 totalScore = totalScore,
                 currentRound = currentRound,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                onStartOver = {startNewGame()}
             )
         }
         Spacer(modifier = Modifier.weight(.5f))
@@ -124,7 +137,7 @@ fun GameScreen() {
                 points = pointsForCurrentRound(),
                 onRoundIncrement = {
                     currentRound += 1
-                    targetValue = Random.nextInt(1, 100)
+                    targetValue = newTargetValue()
                 }
             )
         }
