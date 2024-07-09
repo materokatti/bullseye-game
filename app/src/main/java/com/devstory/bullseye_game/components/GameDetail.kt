@@ -13,6 +13,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -39,8 +40,8 @@ fun GameDetail (
         IconButton(
             onClick = { onStartOver() },
             modifier = Modifier
-                .background(color = Color.Black, shape = CircleShape) // 채워진 배경 적용
-                .size(48.dp) // 버튼 크기 조정
+                .background(color = Color.Black, shape = CircleShape)
+                .size(48.dp)
         ) {
             Icon(
                 imageVector = Icons.Filled.Refresh,
@@ -50,8 +51,17 @@ fun GameDetail (
         }
         GameInfo(label = stringResource(id = R.string.score_label), value = totalScore)
         GameInfo(label = stringResource(id = R.string.current_round_label), value = currentRound)
-        Button(onClick = { /*TODO*/ }) {
-            Text(text = stringResource(id = R.string.info))
+        IconButton(
+            onClick = {  },
+            modifier = Modifier
+                .background(color = Color.Black, shape = CircleShape)
+                .size(48.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Filled.Info,
+                contentDescription = "Info",
+                tint = Color.White
+            )
         }
     }
 }
