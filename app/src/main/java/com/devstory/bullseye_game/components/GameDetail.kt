@@ -40,7 +40,7 @@ fun GameDetail (
         IconButton(
             onClick = { onStartOver() },
             modifier = Modifier
-                .background(color = Color.Black, shape = CircleShape)
+                .background(color = MaterialTheme.colors.secondary, shape = CircleShape)
                 .size(48.dp)
         ) {
             Icon(
@@ -54,7 +54,7 @@ fun GameDetail (
         IconButton(
             onClick = {  },
             modifier = Modifier
-                .background(color = Color.Black, shape = CircleShape)
+                .background(color = MaterialTheme.colors.secondary, shape = CircleShape)
                 .size(48.dp)
         ) {
             Icon(
