@@ -30,7 +30,8 @@ fun GameDetail (
     modifier: Modifier = Modifier,
     totalScore: Int = 0,
     currentRound: Int = 1,
-    onStartOver: () -> Unit
+    onStartOver: () -> Unit,
+    onNavigationToAbout: () -> Unit
 ) {
     Row (
         verticalAlignment = Alignment.CenterVertically,
@@ -52,7 +53,7 @@ fun GameDetail (
         GameInfo(label = stringResource(id = R.string.score_label), value = totalScore)
         GameInfo(label = stringResource(id = R.string.current_round_label), value = currentRound)
         IconButton(
-            onClick = {  },
+            onClick = { onNavigationToAbout() },
             modifier = Modifier
                 .background(color = MaterialTheme.colors.secondary, shape = CircleShape)
                 .size(48.dp)
@@ -83,5 +84,5 @@ fun GameInfo(label: String, value : Int = 0) {
 @Preview(showBackground = true)
 @Composable
 fun GameDetailPreview() {
-    GameDetail(onStartOver = {})
+    GameDetail(onStartOver = {}, onNavigationToAbout= {})
 }
