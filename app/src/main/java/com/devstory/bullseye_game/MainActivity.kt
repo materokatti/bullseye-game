@@ -36,6 +36,6 @@ fun MainScreen() {
         composable("game screen") { GameScreen(
             onNavigationToAbout = {navController.navigate("about")}
         ) }
-        composable("about") { AboutScreen() }
+        composable("about") { AboutScreen( onNavigateBack = {navController.navigateUp()}) }
     }
 }
