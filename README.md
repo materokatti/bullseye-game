@@ -19,5 +19,5 @@ This is a simple game where you have to guess the number that the computer has c
 ### Polishing the game
 - [x] Implement multiple rounds
 - [x] Implement restarting the game
-- [] Make the app look pretty :)
-- [] Add the about screen
+- [x] Make the app look pretty :)
+- [x] Add the about screen
