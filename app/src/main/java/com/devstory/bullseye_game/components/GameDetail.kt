@@ -47,7 +47,7 @@ fun GameDetail (
             Icon(
                 imageVector = Icons.Filled.Refresh,
                 contentDescription = "Refresh",
-                tint = Color.White
+                tint = if (MaterialTheme.colors.isLight) Color.White else Color.Black
             )
         }
         GameInfo(label = stringResource(id = R.string.score_label), value = totalScore)
@@ -61,7 +61,7 @@ fun GameDetail (
             Icon(
                 imageVector = Icons.Filled.Info,
                 contentDescription = "Info",
-                tint = Color.White
+                tint = if (MaterialTheme.colors.isLight) Color.White else Color.Black
             )
         }
     }
