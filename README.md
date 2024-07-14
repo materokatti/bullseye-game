@@ -21,3 +21,8 @@ This is a simple game where you have to guess the number that the computer has c
 - [x] Implement restarting the game
 - [x] Make the app look pretty :)
 - [x] Add the about screen
+
+### App Image
+
+<img width="802" alt="Screenshot 2024-07-15 at 7 58 51 AM" src="https://github.com/user-attachments/assets/676665fb-f213-4495-8298-763197b700f0">
+
